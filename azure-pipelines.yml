@@ -1,7 +1,8 @@
 trigger: none
 pool: Default
 stages:
-  - stage: 
+  - stage: CIPipeline
+    displayName: "Continues Integration Pipeline"
     jobs:
       - job: 
         steps:
