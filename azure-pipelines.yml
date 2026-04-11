@@ -24,4 +24,8 @@ stages:
             targetPath: '$(Pipeline.Workspace)'
             artifact: 'npm_build'
             publishLocation: 'pipeline'
-        
+        - task: SSH@0
+          inputs:
+            sshEndpoint: 'Deploymentssh'
+            runOptions: 'commands'
+            readyTimeout: '20000'
