@@ -28,4 +28,4 @@ stages:
           inputs:
             sshEndpoint: 'Deploymentssh'
             runOptions: 'commands'
-            readyTimeout: '20000'
+            commands: 'ssh azureadmin@20.219.32.137'
