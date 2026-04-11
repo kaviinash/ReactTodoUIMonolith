@@ -1,5 +1,6 @@
 trigger: none
 pool: Default
+name: applicationPipeline
 stages:
   - stage: CIPipeline
     displayName: "Continues Integration Pipeline"
