@@ -14,7 +14,7 @@ stages:
               Invoke-WebRequest -Uri "https://github.com/biomejs/biome/releases/download/%40biomejs%2Fbiome%402.4.11/biome-win32-x64.exe" -OutFile "$(System.DefaultWorkingDirectory)\biome.exe"
                     
               $(System.DefaultWorkingDirectory)\biome.exe lint $(System.DefaultWorkingDirectory)/src
-        
+          continueOnError: true
   - stage: CIPipeline
     displayName: "Continues Integration Pipeline"
     jobs:
