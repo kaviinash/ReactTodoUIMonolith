@@ -14,7 +14,7 @@ stages:
           inputs:
             targetType: 'inline'
             script: 'npm install'
-        
+
         - task: PowerShell@2
           inputs:
             targetType: 'inline'
@@ -56,4 +56,5 @@ stages:
               
               echo "Done 🚀"
             readyTimeout: '20000'
+        
         
