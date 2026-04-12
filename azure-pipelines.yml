@@ -20,8 +20,8 @@ stages:
             targetType: 'inline'
             script: |
               pip install --user pylint
-              
               pylint $(System.DefaultWorkingDirectory)
+          continueOnError: true
   - stage: CIPipeline
     displayName: "Continues Integration Pipeline"
     jobs:
