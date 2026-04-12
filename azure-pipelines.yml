@@ -21,8 +21,8 @@ stages:
             script: 'npm run build'
         - task: PublishPipelineArtifact@1
           inputs:
-            targetPath: '/build'
-            artifact: 'npm_build'
+            targetPath: '$(Pipeline.Workspace)\build'
+            artifact: 'todo-artifact'
             publishLocation: 'pipeline'
   - stage: Deploy
     jobs:
