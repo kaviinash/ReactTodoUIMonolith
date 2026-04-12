@@ -15,6 +15,13 @@ stages:
                     
               $(System.DefaultWorkingDirectory)\biome.exe lint $(System.DefaultWorkingDirectory)/src
           continueOnError: true
+        - task: PowerShell@2
+          inputs:
+            targetType: 'inline'
+            script: |
+              pip install pylint
+              
+              pylint $(System.DefaultWorkingDirectory)
   - stage: CIPipeline
     displayName: "Continues Integration Pipeline"
     jobs:
