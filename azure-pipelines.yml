@@ -24,20 +24,24 @@ stages:
             targetPath: '$(Pipeline.Workspace)'
             artifact: 'npm_build'
             publishLocation: 'pipeline'
+        
         - task: SSH@0
           inputs:
+            sshEndpoint: 'Deploymentssh'
             runOptions: 'inline'
             inline: |
+              #!/bin/bash
+              
               # Check if nginx is installed
               if dpkg -s nginx >/dev/null 2>&1; then
-                  echo "Nginx already installed 👍"
+                  echo "Nginx already installed "
               else
                   echo "Installing Nginx..."
               
                   sudo apt update
                   sudo apt install -y nginx
               
-                  echo "Nginx installed 👍"
+                  echo "Nginx installed "
               fi
               
               # Start nginx
@@ -46,4 +50,5 @@ stages:
               
               echo "Done "
             readyTimeout: '20000'
+ 
         
