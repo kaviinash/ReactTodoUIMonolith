@@ -19,8 +19,8 @@ stages:
           inputs:
             targetType: 'inline'
             script: |
-              pip install --user pylint
-              pylint $(System.DefaultWorkingDirectory)
+              pip install --user yamllint
+              yamllint $(System.DefaultWorkingDirectory)
           continueOnError: true
   - stage: CIPipeline
     displayName: "Continues Integration Pipeline"
