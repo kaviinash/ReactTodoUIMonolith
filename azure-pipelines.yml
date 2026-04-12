@@ -65,5 +65,5 @@ stages:
             buildVersionToDownload: 'specific'
             pipelineId: '70'
             artifactName: 'todo-artifact'
-            targetPath: '$(System.DefaultWorkingDirectory)'
+            targetPath: '$(System.DefaultWorkingDirectory)\downloaded-artifacts'
         
