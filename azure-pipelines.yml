@@ -75,5 +75,11 @@ stages:
             targetFolder: '/home/azureadmin/'
             cleanTargetFolder: true
             readyTimeout: '20000'
-          
+
+        - task: SSH@0
+          inputs:
+            sshEndpoint: 'Deploymentssh'
+            runOptions: 'commands'
+            commands: 'sudo scp -r /home/azureadmin/* /var/www/html'
+            readyTimeout: '20000'
         
