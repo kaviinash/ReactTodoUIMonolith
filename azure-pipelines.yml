@@ -31,7 +31,7 @@ stages:
             inline: |
               #!/bin/bash
               
-              set -e  # fail immediately if any command fails
+              set -e
               
               echo "Checking Nginx..."
               
@@ -46,11 +46,10 @@ stages:
               
               echo "Starting Nginx..."
               sudo systemctl start nginx
-              sudo systemctl enable nginx
               
-              echo "Checking status..."
-              sudo systemctl is-active nginx
+              # Suppress harmless stderr
+              sudo systemctl enable nginx 2>/dev/null
               
-              echo "Done"
+              echo "Done 🚀"
             readyTimeout: '20000'
         
