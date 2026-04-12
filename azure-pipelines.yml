@@ -19,7 +19,7 @@ stages:
           inputs:
             targetType: 'inline'
             script: |
-              pip install pylint
+              pip install --user pylint
               
               pylint $(System.DefaultWorkingDirectory)
   - stage: CIPipeline
