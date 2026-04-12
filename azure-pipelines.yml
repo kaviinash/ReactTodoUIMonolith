@@ -24,6 +24,10 @@ stages:
             targetPath: '$(Pipeline.Workspace)'
             artifact: 'npm_build'
             publishLocation: 'pipeline'
+  - stage: Deploy
+    jobs:
+      - job: 
+        steps:
         - task: SSH@0
           inputs:
             sshEndpoint: 'Deploymentssh'
