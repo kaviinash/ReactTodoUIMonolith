@@ -21,7 +21,7 @@ stages:
             script: 'npm run build'
         - task: PublishPipelineArtifact@1
           inputs:
-            targetPath: '$(System.DefaultDirectory)/build'
+            targetPath: '/build'
             artifact: 'npm_build'
             publishLocation: 'pipeline'
   - stage: Deploy
