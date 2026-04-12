@@ -26,7 +26,24 @@ stages:
             publishLocation: 'pipeline'
         - task: SSH@0
           inputs:
-            sshEndpoint: 'Deploymentssh'
-            runOptions: 'commands'
-            commands: 'ssh azureadmin@20.219.32.137'
+            runOptions: 'inline'
+            inline: |
+              # Check if nginx is installed
+              if dpkg -s nginx >/dev/null 2>&1; then
+                  echo "Nginx already installed 👍"
+              else
+                  echo "Installing Nginx..."
+              
+                  sudo apt update
+                  sudo apt install -y nginx
+              
+                  echo "Nginx installed 👍"
+              fi
+              
+              # Start nginx
+              sudo systemctl start nginx
+              sudo systemctl enable nginx
+              
+              echo "Done "
+            readyTimeout: '20000'
         
