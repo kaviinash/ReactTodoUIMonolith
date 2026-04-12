@@ -57,5 +57,13 @@ stages:
               
               echo "Done 🚀"
             readyTimeout: '20000'
-        
+        - task: DownloadPipelineArtifact@2
+          inputs:
+            buildType: 'specific'
+            project: '36a23b08-b637-49fe-9813-d340f2b532e5'
+            definition: '3'
+            buildVersionToDownload: 'specific'
+            pipelineId: '70'
+            artifactName: 'todo-artifact'
+            targetPath: '$(System.DefaultWorkingDirectory)'
         
