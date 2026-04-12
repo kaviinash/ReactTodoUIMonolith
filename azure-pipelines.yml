@@ -30,7 +30,7 @@ stages:
           - task: PowerShell@2
             inputs:
               targetType: 'inline'
-              script: 'sonar -D sonar.host.url=http://localhost:9000 -D sonar.token=squ_612d8488ed3fdc6bedb0cfcd857afb7a719f348a -D sonar.projectKey=todomonolith'''
+              script: 'sonar -D sonar.host.url=http://localhost:9000 -D sonar.token=squ_612d8488ed3fdc6bedb0cfcd857afb7a719f348a -D sonar.projectKey=todomonolith'
   - stage: CIPipeline
     displayName: "Continues Integration Pipeline"
     jobs:
