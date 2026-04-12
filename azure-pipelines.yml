@@ -24,7 +24,8 @@ stages:
             targetPath: '$(System.DefaultWorkingDirectory)/build/'
             artifact: 'todo-artifact'
             publishLocation: 'pipeline'
-  - stage: Deploy
+  - stage: ContinuesDeployment
+    displayName: "Continues Deployment"
     jobs:
       - job: 
         steps:
