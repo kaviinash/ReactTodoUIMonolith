@@ -66,4 +66,14 @@ stages:
             pipelineId: '70'
             artifactName: 'todo-artifact'
             targetPath: '$(System.DefaultWorkingDirectory)\downloaded-artifacts'
+
+        - task: CopyFilesOverSSH@0
+          inputs:
+            sshEndpoint: 'Deploymentssh'
+            sourceFolder: '$(System.DefaultWorkingDirectory)\downloaded-artifacts'
+            contents: '**'
+            targetFolder: '/home/azureadmin/'
+            cleanTargetFolder: true
+            readyTimeout: '20000'
+          
         
