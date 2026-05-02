@@ -23,25 +23,6 @@ stages:
                 python -m yamllint $(System.DefaultWorkingDirectory)
           displayName: Run yamllint 
           continueOnError: true
-  - stage: SonarQube
-    displayName: "Sonar Qube Analysis"
-    jobs:
-      - job: 
-        steps:
-        - task: SonarQubePrepare@8
-          inputs:
-            scannerMode: 'cli'
-            configMode: 'manual'
-            cliProjectKey: 'todomonolith'
-            cliProjectName: 'todomonolith'
-            cliSources: '.'
-        - task: SonarQubeAnalyze@8
-          inputs:
-            jdkversion: 'JAVA_HOME_17_X64'
-        - task: SonarQubePublish@8
-          inputs:
-            pollingTimeoutSec: '300'
-
   - stage: CIPipeline
     displayName: "Continues Integration Pipeline"
     jobs:
